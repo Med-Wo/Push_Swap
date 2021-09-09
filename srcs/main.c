@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 08:58:41 by mravily           #+#    #+#             */
-/*   Updated: 2021/09/06 20:11:41 by mravily          ###   ########.fr       */
+/*   Updated: 2021/09/09 18:35:37 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,33 @@ void	check_argument(char **av)
 			error_exit(NULL, "Arguments contains duplicates");
 }
 
+/* Print the contains of the chain list */
+void	print_list(t_list *list)
+{
+	t_element	*actual;
+
+	actual = list->first;
+	while (actual != NULL)
+	{
+		printf("id = [%zu] ~ ", actual->id);
+		printf("value = [%d]\n", actual->value);
+		actual = actual->next;
+	}
+}
+
 int	main(int ac, char **av)
 {
+	t_list	*list_a;
+	t_list	*list_b;
+
 	check_argument(av);
-	g_list = init_list();
+	list_a = init_list(av);
+	list_b = (t_list *)malloc(sizeof(t_list));
+	list_b->first = ft_lstnew(0, NULL);
+	print_list(list_a);
+	puts("");
+	push_list(list_a, list_b);
+	print_list(list_a);
 	return (EXIT_SUCCESS);
 	(void)ac;
 }
