@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 08:58:41 by mravily           #+#    #+#             */
-/*   Updated: 2021/12/26 17:32:00 by mravily          ###   ########.fr       */
+/*   Updated: 2021/12/28 18:00:50 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	**split_argument(char **av)
 			ft_add_to_tab((void **)av[i], (void ***)&result);
 		i++;
 	}
+	ft_tab_free(tab);
 	return (result);
 }
 
