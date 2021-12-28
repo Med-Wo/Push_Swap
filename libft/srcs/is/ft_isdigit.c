@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 13:06:47 by mravily           #+#    #+#             */
-/*   Updated: 2021/09/06 19:24:07 by mravily          ###   ########.fr       */
+/*   Updated: 2021/12/25 17:20:01 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ bool	ft_strisdigit(char *str)
 	int	i;
 
 	i = 0;
+	if (str[0] == '-')
+			i++;
 	while (str[i] != '\0')
 	{
-		if (str[0] == '-')
-			i++;
-		if (ft_isdigit(str[i]) == false)
+		if (ft_isdigit(str[i]) == false && str[i] != '\0')
 			return (false);
 		i++;
 	}

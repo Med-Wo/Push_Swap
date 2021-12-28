@@ -6,35 +6,45 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:23:22 by mravily           #+#    #+#             */
-/*   Updated: 2021/09/06 19:23:37 by mravily          ###   ########.fr       */
+/*   Updated: 2021/12/26 15:00:41 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_isspace(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r')
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(char *str)
 {
-	size_t		i;
-	int		nb;
-	int		neg;
+	long int	i;
+	long int	neg;
+	long int	ret;
 
-	neg = 0;
-	nb = 0;
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' || str[i] == '\n'
-		|| str[i] == '\r' || str[i] == '\f')
+	neg = 1;
+	ret = 0;
+	while (ft_isspace(str[i]))
 		i++;
-	if (str[i] == '-')
-		neg = 1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		nb = nb * 10;
-		nb = nb + str[i] - 48;
+		if (str[i] == '-')
+			neg = neg * -1;
 		i++;
 	}
-	if (neg == (-nb))
-		return (-nb);
-	return (nb);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		ret = ret * 10 + (str[i] - '0');
+		i++;
+		if (neg == 1 && ret > 2147483647)
+			return (-1);
+		if (neg == -1 && ret > 2147483648)
+			return (0);
+	}
+	return ((int)ret * neg);
 }

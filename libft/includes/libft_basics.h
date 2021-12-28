@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 12:05:47 by mravily           #+#    #+#             */
-/*   Updated: 2021/09/06 19:27:06 by mravily          ###   ########.fr       */
+/*   Updated: 2021/12/26 15:00:08 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ char				*ft_strnew(size_t size);
 void				ft_strdel(char **as);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
-void				ft_striteri(char *s, void(*f)(unsigned int, char *));
 char				*ft_strmap(char *s, char (*f)(char));
 char				*ft_strmapi(char *s, char (*f)(unsigned int, char));
 int					ft_strequ(char *s1, char *s2);
@@ -67,7 +66,7 @@ int					ft_strnequ(char *s1, char *s2, size_t n);
 char				*ft_strsub(char *s, unsigned int start, size_t len);
 char				*ft_strjoin(char *s1, char *s2);
 char				*ft_strtrim(char *s);
-char				**ft_strsplit(char *s, char c);
+char				**ft_split(char *s, char c);
 char				*ft_itoa(long long n);
 void				ft_putchar(char c);
 void				ft_putstr(char *s);
