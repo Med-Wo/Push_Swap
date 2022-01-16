@@ -10,7 +10,7 @@ vpath %.c $(foreach dir, $(SRC_DIR), $(dir):)
 CFLAGS =  -Wall -Werror -Wextra -g
 IFLAG = $(foreach dir, $(INC_DIR), -I $(dir) )
 
-SRCS = main.c actions.c algo.c element.c list.c check.c tree.c through_tree.c free_list.c
+SRCS = main.c actions.c utils.c sort.c element.c list.c check.c tree.c through_tree.c free_list.c
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
 # Colors

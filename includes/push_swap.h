@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:01:02 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 15:42:17 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 23:51:20 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,15 @@ void		push(t_element **from_stack, t_element **to_stack, char *action);
 
 /* Sort function */
 void		sort_three(t_list **data);
-void		sort_five(t_list **data, int size);
+void		sort_four(t_list **data);
+void		sort_five(t_list **data);
 void		radix_sort_binary(t_list **data);
 
+/* Utils */
+int			get_index(t_element *stack, int id);
+int			get_min(t_element *stack);
+int			get_max(t_element *stack);
+int			get_max_bits(int max_num);
 typedef struct s_node
 {
 	int				key;
