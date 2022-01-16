@@ -6,12 +6,13 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 16:08:58 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 15:18:10 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 15:37:30 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Check if value is not duplicate */
 bool	check_duplicate(char **av)
 {
 	int	i;
@@ -33,6 +34,7 @@ bool	check_duplicate(char **av)
 	return (false);
 }
 
+/* Display error, free data and exit the programm with EXIT_FAILURE code */
 void	error_handle(char *error, char **tab, t_list **data)
 {
 	ft_putstr_fd(error, 2);
@@ -44,6 +46,7 @@ void	error_handle(char *error, char **tab, t_list **data)
 	exit(EXIT_FAILURE);
 }
 
+/* Check if the arguments are valid */
 void	check_argument(char **tab, t_list **data)
 {
 	int			i;
@@ -69,6 +72,7 @@ void	check_argument(char **tab, t_list **data)
 	ft_tab_free(tab);
 }
 
+/* Check if the stack is already sorted */
 bool	is_sorted(t_element *stack_a)
 {
 	t_element	*actual;
@@ -82,24 +86,6 @@ bool	is_sorted(t_element *stack_a)
 			return (false);
 		actual = actual->next;
 		next = next->next;
-	}
-	return (true);
-}
-
-bool	a_is_sorted(t_element *stack_a)
-{
-	int		smaller;
-
-	smaller = -1;
-	while (stack_a->next != NULL)
-	{
-		if (smaller == -1)
-			smaller = stack_a->value;
-		else if (stack_a->value > smaller)
-			smaller = stack_a->value;
-		else
-			return (false);
-		stack_a = stack_a->next;
 	}
 	return (true);
 }

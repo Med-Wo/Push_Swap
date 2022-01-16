@@ -6,12 +6,13 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 08:58:41 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 15:05:46 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 15:38:42 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Split space fill in argument and add to a new tab*/
 char	**split_argument(char **av)
 {
 	char	**tab;
@@ -26,7 +27,6 @@ char	**split_argument(char **av)
 	{
 		if (ft_strcchr(av[i], ' '))
 		{
-			ft_putendl("SPLIT");
 			tab = ft_split(av[i], ' ');
 			y = -1;
 			while (tab[++y])
@@ -40,6 +40,7 @@ char	**split_argument(char **av)
 	return (result);
 }
 
+/* Print binary value */
 void	print_binary(int n, int n_bit_to_display)
 {
 	unsigned int	bit;

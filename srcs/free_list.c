@@ -6,12 +6,13 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:32:35 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 15:15:45 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 15:39:17 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Free the stack */
 void	free_element(t_element **actual)
 {
 	t_element	*tmp;
@@ -27,6 +28,7 @@ void	free_element(t_element **actual)
 	}
 }
 
+/* Free list */
 void	free_list(t_list **data)
 {
 	if (!data)

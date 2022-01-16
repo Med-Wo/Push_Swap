@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:48:03 by mravily           #+#    #+#             */
-/*   Updated: 2021/12/26 16:27:30 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 15:40:10 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	swap(t_element **stack, char *action)
 	ft_putendl(action);
 }
 
+/* Push element from_stack to_stack and display action */
 void	push(t_element **from_stack, t_element **to_stack, char *action)
 {
 	t_element	*tmp;
