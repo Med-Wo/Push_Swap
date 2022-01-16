@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 09:48:03 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 15:40:10 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 19:46:31 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	sort_list(t_list **data)
 	else if (len_stack == 3)
 		sort_three(data);
 	else if (len_stack <= 5)
-		sort_five(data, 5);
+		sort_five(data, len_stack);
 	else
 		radix_sort_binary(data);
 }
