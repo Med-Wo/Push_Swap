@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 14:54:48 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 15:06:31 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 15:23:19 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_list	*init_list(void)
 	data->stack_b = NULL;
 	data->bigger = INT_MIN;
 	data->size = -1;
-	return(data);
+	return (data);
 }
 
 t_element	*ft_lstlast(t_element *actual)
