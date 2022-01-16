@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 16:08:58 by mravily           #+#    #+#             */
-/*   Updated: 2021/12/26 16:34:39 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 15:18:10 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,14 @@ bool	check_duplicate(char **av)
 	return (false);
 }
 
-void	error_handle(char *error)
+void	error_handle(char *error, char **tab, t_list **data)
 {
 	ft_putstr_fd(error, 2);
+	ft_tab_free(tab);
+	(*data)->bigger = -1;
+	(*data)->size = -1;
+	free(*data);
+	data = NULL;
 	exit(EXIT_FAILURE);
 }
 
@@ -48,19 +53,20 @@ void	check_argument(char **tab, t_list **data)
 	while (tab[i] != NULL)
 	{
 		if (ft_strlen(tab[i]) == 0 || ft_strlen(tab[i]) > 9)
-			error_handle("Error\n");
+			error_handle("Error\n", tab, data);
 		if (ft_strisdigit(tab[i]) == false)
-			error_handle("Error\n");
+			error_handle("Error\n", tab, data);
 		if (ft_strlen(tab[i]) > 10)
-			error_handle("Error\n");
+			error_handle("Error\n", tab, data);
 		test = ft_atol(tab[i]);
 		if (test < INT_MIN || test > INT_MAX)
-			error_handle("Error\n");
+			error_handle("Error\n", tab, data);
 		i++;
 	}
 	if (check_duplicate(tab) == true)
-		error_handle("Error\n");
+		error_handle("Error\n", tab, data);
 	add_to_lst(tab, data);
+	ft_tab_free(tab);
 }
 
 bool	is_sorted(t_element *stack_a)

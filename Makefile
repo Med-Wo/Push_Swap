@@ -7,7 +7,7 @@ SRC_DIR = $(shell find srcs -type d)
 OBJ_DIR = obj
 
 vpath %.c $(foreach dir, $(SRC_DIR), $(dir):)
-CFLAGS =  -Wall -Werror -Wextra 
+CFLAGS =  -Wall -Werror -Wextra -g
 IFLAG = $(foreach dir, $(INC_DIR), -I $(dir) )
 
 SRCS = main.c actions.c algo.c element.c list.c check.c tree.c through_tree.c free_list.c
@@ -30,8 +30,7 @@ $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(IFLAG) -c $< -o $@
 
-$(NAME)	: $(OBJ)
-	
+$(NAME)	: $(OBJ) install
 	@$(CC) $(CFLAGS) $(IFLAG) $(OBJ) -o $@ libft/libft.a
 	@echo "Compilated and executable created"
 

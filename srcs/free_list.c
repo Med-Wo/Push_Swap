@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:32:35 by mravily           #+#    #+#             */
-/*   Updated: 2021/12/26 17:33:44 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 15:15:45 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,20 @@ void	free_element(t_element **actual)
 		(*actual)->id = -1;
 		(*actual)->value = -1;
 		tmp = (*actual)->next;
-		free((*actual));
+		free(*actual);
+		(*actual) = NULL;
 		(*actual) = tmp;
 	}
 }
 
 void	free_list(t_list **data)
 {
-	t_list	*tmp_list;
-
-	tmp_list = (*data);
 	if (!data)
 		return ;
-	free_element(&tmp_list->stack_a);
-	free_element(&tmp_list->stack_b);
-	tmp_list->bigger = -1;
-	tmp_list->size = -1;
-	free(tmp_list);
-	(*data) = NULL;
+	free_element(&(*data)->stack_a);
+	free_element(&(*data)->stack_b);
+	(*data)->bigger = -1;
+	(*data)->size = -1;
+	free(*data);
+	data = NULL;
 }

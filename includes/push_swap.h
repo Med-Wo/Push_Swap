@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 09:01:02 by mravily           #+#    #+#             */
-/*   Updated: 2021/12/26 17:34:11 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 15:07:15 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ bool		check_duplicate(char **av);
 void		check_argument(char **tab, t_list **stacks);
 bool		a_is_sorted(t_element *stack_a);
 bool		is_sorted(t_element *stack_a);
-void		error_handle(char *error);
 
 /* Chain list function */
 t_element	*ft_lstlast(t_element *actual);
