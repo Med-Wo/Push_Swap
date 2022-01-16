@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:31:30 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/17 00:06:00 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 00:11:29 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	sort_five(t_list **data)
 	push(&(*data)->stack_a, &(*data)->stack_b, "pb");
 	sort_four(data);
 	push(&(*data)->stack_b, &(*data)->stack_a, "pa");
-	print_list("STACK_A", (*data)->stack_a);
 }
 
 void	radix_sort_binary(t_list **data)
