@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:31:30 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 21:12:33 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 22:49:06 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,32 +136,55 @@ void	sort_three(t_list **data)
 	// }
 }
 
-void	solve_two(t_list **data, int id)
+void	solve_two(t_list **data, t_element *stack)
 {
 	
-	if ((*data)->stack_a->id < (*data)->stack_a->next->id && id == 0)
+	if ((*data)->stack_a->id < (*data)->stack_a->next->id && stack == (*data)->stack_a)
 		swap(&(*data)->stack_a, "sa");
-	if ((*data)->stack_b->id < (*data)->stack_b->next->id && id == 1)
+	if ((*data)->stack_b->id < (*data)->stack_b->next->id && stack == (*data)->stack_b)
 		swap(&(*data)->stack_b, "sb");
 }
 
 void	sort_five(t_list **data, int size)
 {
-	int		i;
 
-	i = 0;
-	while (i < size - 3)
-	{	
-		if ((*data)->stack_a->id == 0 || ((*data)->stack_a->id == 1 && size == 5))
-		{
-			push(&(*data)->stack_a, &(*data)->stack_b, "pb");
-			i++;
-		}
-		rotate(&(*data)->stack_a, "ra");
-	}
+	push(&(*data)->stack_a, &(*data)->stack_b, "pb");
+	push(&(*data)->stack_a, &(*data)->stack_b, "pb");
 	sort_three(data);
-	if (size == 5)
-		solve_two(data, 1);
 	while ((*data)->stack_b)
+	{
+		if ((*data)->stack_b->id == (*data)->bigger)
+		{
+			while ((*data)->stack_a->id != 0)
+				rotate(&(*data)->stack_a, "ra");
+		}
+		else
+		{
+			while ((*data)->stack_a->id != (*data)->stack_b->id + 1)
+				rotate(&(*data)->stack_a, "ra");
+		}
 		push(&(*data)->stack_b, &(*data)->stack_a, "pa");
+	}
+	while (is_sorted((*data)->stack_a) == false)
+		rotate(&(*data)->stack_a, "ra");
+	//print_list("stack_a", (*data)->stack_a);
+	//print_list("stack_b", (*data)->stack_b);
+	(void)size;
+	// int		i;
+
+	// i = 0;
+	// while (i < size - 3)
+	// {	
+	// 	if ((*data)->stack_a->id == 0 || ((*data)->stack_a->id == 1 && size == 5))
+	// 	{
+	// 		push(&(*data)->stack_a, &(*data)->stack_b, "pb");
+	// 		i++;
+	// 	}
+	// 	rotate(&(*data)->stack_a, "ra");
+	// }
+	// sort_three(data);
+	// if (size == 5)
+	// 	solve_two(data, (*data)->stack_b);
+	// while ((*data)->stack_b)
+	// 	push(&(*data)->stack_b, &(*data)->stack_a, "pa");
 }
