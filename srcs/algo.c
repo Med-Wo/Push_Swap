@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:31:30 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 21:02:21 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 21:12:33 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,9 +138,10 @@ void	sort_three(t_list **data)
 
 void	solve_two(t_list **data, int id)
 {
-	if ((*data)->stack_a->id > (*data)->stack_a->next->id && id == 0)
+	
+	if ((*data)->stack_a->id < (*data)->stack_a->next->id && id == 0)
 		swap(&(*data)->stack_a, "sa");
-	if ((*data)->stack_b->id > (*data)->stack_b->next->id && id == 1)
+	if ((*data)->stack_b->id < (*data)->stack_b->next->id && id == 1)
 		swap(&(*data)->stack_b, "sb");
 }
 

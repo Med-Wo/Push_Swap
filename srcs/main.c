@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 08:58:41 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 15:38:42 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/16 21:12:49 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void	print_list(char *title, t_element *actual)
 	{
 		printf("id = [%d] ~ ", actual->id);
 		printf("value = [%d] ~ binary = ", actual->value);
-		print_binary(actual->value, 3);
+		puts("");
+		//print_binary(actual->value, 3);
 		actual = actual->next;
 	}
 }
@@ -85,6 +86,7 @@ int	main(int ac, char **av)
 	data = init_list();
 	check_argument(split_argument(av), &data);
 	sort_list(&data);
+	//print_list("test", data->stack_a);
 	free_list(&data);
 	return (EXIT_SUCCESS);
 }
