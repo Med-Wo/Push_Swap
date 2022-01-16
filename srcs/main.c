@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 08:58:41 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/17 00:03:36 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 00:12:16 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	print_list(char *title, t_element *actual)
 	{
 		ft_printf("id = [%d] ~ ", actual->id);
 		ft_printf("value = [%d] ~ binary = ", actual->value);
-		puts("");
+		//puts("");
 		//print_binary(actual->value, 3);
 		actual = actual->next;
 	}

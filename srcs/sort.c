@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:31:30 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/17 00:11:29 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 00:19:45 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,26 @@ void	sort_five(t_list **data)
 	push(&(*data)->stack_b, &(*data)->stack_a, "pa");
 }
 
+int	action_necessary(t_element *stack, int index, int size)
+{
+	int	i;
+	int	uneven;
+
+	i = 0;
+	uneven = 0;
+	while (i < size)
+	{
+		if ((stack->id >> index & 1) == 1)
+			uneven++;
+		i++;
+		stack = stack->next;
+	}
+	if (uneven == 0)
+		return (0);
+	else
+		return (1);
+}
+
 void	radix_sort_binary(t_list **data)
 {
 	int	i;
@@ -86,12 +106,16 @@ void	radix_sort_binary(t_list **data)
 		size = ft_lst_len((*data)->stack_a);
 		while (size)
 		{
-		
-			if (((*data)->stack_a->id >> i & 1) == 1)
-				rotate(&(*data)->stack_a, "ra");
+			if (action_necessary((*data)->stack_a, i, size))
+			{
+				if (((*data)->stack_a->id >> i & 1) == 1)
+					rotate(&(*data)->stack_a, "ra");
+				else
+					push(&(*data)->stack_a, &(*data)->stack_b, "pb");
+				size--;
+			}
 			else
-				push(&(*data)->stack_a, &(*data)->stack_b, "pb");
-			size--;
+				break ;
 		}
 		while ((*data)->stack_b)
 			push(&(*data)->stack_b, &(*data)->stack_a, "pa");
