@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 16:08:58 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/17 15:49:42 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 15:52:02 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,11 @@ void	check_argument(char **tab, t_list **data)
 	i = 0;
 	while (tab[i] != NULL)
 	{
-		printf("tab[%d] = %s\n", i, tab[i]);
-		printf("len = %ld\n", ft_strlen(tab[i]));
 		if (ft_strlen(tab[i]) == 0 || ft_strlen(tab[i]) > 11)
 			error_handle("Error\n", tab, data);
 		if (ft_strisdigit(tab[i]) == false)
 			error_handle("Error\n", tab, data);
 		test = ft_atol(tab[i]);
-		printf("test = %ld\n", test);
 		if (test < INT_MIN || test > INT_MAX)
 			error_handle("Error\n", tab, data);
 		i++;
