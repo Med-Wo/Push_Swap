@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 12:05:47 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/17 15:47:42 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 17:08:02 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ bool				ft_isdigit(int c);
 bool				ft_isalnum(int c);
 bool				ft_isascii(int c);
 bool				ft_isprint(int c);
-int					ft_isspace(char c);
+int					ft_isspace(int c);
 bool				ft_isnum(int c);
 bool				ft_strisalpha(char *str);
 bool				ft_strisdigit(char *str);

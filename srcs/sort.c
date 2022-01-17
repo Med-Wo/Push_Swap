@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 15:31:30 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/17 00:19:45 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 17:47:16 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	radix_sort_binary(t_list **data)
 	int	max_bits;
 	int	size;
 
-	max_bits = get_max_bits((*data)->bigger) + 1;
+	max_bits = get_max_bits((*data)->size);
 	i = 0;
 	while (i < max_bits)
 	{

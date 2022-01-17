@@ -6,18 +6,31 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 23:45:45 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/16 23:51:32 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 17:47:00 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* Function to get the len of binary number */
-int	get_max_bits(int max_num)
+// int	get_max_bits(int max_num)
+// {
+// 	int	max_bits;
+
+// 	max_bits = 0;
+// 	while ((max_num >> max_bits) != 0)
+	
+// 		max_bits++;
+// 	return (max_bits);
+// }
+
+int	get_max_bits(int size)
 {
+	int	max_num;
 	int	max_bits;
 
 	max_bits = 0;
+	max_num = size - 1;
 	while ((max_num >> max_bits) != 0)
 		max_bits++;
 	return (max_bits);

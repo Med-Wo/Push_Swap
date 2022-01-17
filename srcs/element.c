@@ -6,7 +6,7 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 11:26:20 by mravily           #+#    #+#             */
-/*   Updated: 2021/12/26 17:32:27 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 17:48:34 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	add_to_lst(char **tab, t_list **data)
 	}
 	(*data)->size = i;
 	through_tree(tree, &(*data)->stack_a);
+
 	clear_tree(&tree);
 }
 

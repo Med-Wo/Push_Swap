@@ -6,14 +6,25 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 08:58:41 by mravily           #+#    #+#             */
-/*   Updated: 2022/01/17 00:12:16 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 18:08:35 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
+/* Display error, free data and exit the programm with EXIT_FAILURE code */
+void	error_handle_test(char *error, t_list **data)
+{
+	ft_putstr_fd(error, 2);
+	(*data)->bigger = -1;
+	(*data)->size = -1;
+	free(*data);
+	data = NULL;
+	exit(EXIT_FAILURE);
+}
 /* Split space fill in argument and add to a new tab*/
-char	**split_argument(char **av)
+char	**split_argument(char **av, t_list **data)
 {
 	char	**tab;
 	char	**result;
@@ -37,6 +48,8 @@ char	**split_argument(char **av)
 			ft_add_to_tab((void **)av[i], (void ***)&result);
 		i++;
 	}
+	if (result == NULL)
+		error_handle_test("Error\n", data);
 	return (result);
 }
 
@@ -84,7 +97,7 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	data = init_list();
-	check_argument(split_argument(av), &data);
+	check_argument(split_argument(av, &data), &data);
 	sort_list(&data);
 	free_list(&data);
 	return (EXIT_SUCCESS);
