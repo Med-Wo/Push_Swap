@@ -6,35 +6,37 @@
 /*   By: mravily <mravily@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 19:22:14 by mravily           #+#    #+#             */
-/*   Updated: 2021/09/06 19:26:54 by mravily          ###   ########.fr       */
+/*   Updated: 2022/01/17 15:48:48 by mravily          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_isspace_int(int c)
+{
+	return (c == '\t' || c == '\n' || c == '\v'
+			|| c == '\f' || c == '\r' || c == ' ');
+}
+
 long	ft_atol(char *str)
 {
-	size_t		i;
-	long		nb;
-	long		neg;
+	long int	nb;
+	int			sign;
 
-	neg = 0;
 	nb = 0;
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' || str[i] == '\n'
-		|| str[i] == '\r' || str[i] == '\f')
-		i++;
-	if (str[i] == '-')
-		neg = 1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	sign = 1;
+	while (ft_isspace_int((int)*str))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		nb = nb * 10;
-		nb = nb + str[i] - 48;
-		i++;
+		if (*str == '-')
+			sign = (-1);
+		str++;
 	}
-	if (neg == (-nb))
-		return (-nb);
-	return (nb);
+	while (ft_isdigit((int)*str))
+	{
+		nb = nb * 10 + *str - '0';
+		str++;
+	}
+	return (sign * nb);
 }
